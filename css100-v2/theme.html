@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<style type="text/css" media="screen">
+@import "<{$xoops_themecss}>";
+</style>
+<!-- Module Header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+<style type="text/css" media="screen">
+@import "style.css";
+</style>
+
+</head>
+
+<body>
+<!-- Start Header -->
+<div id="header">
+	<h1><{$xoops_sitename}></h1>
+	<{$xoops_slogan}>
+	<hr />
+</div>
+<!-- End Header -->
+<!-- Start Main Content Area -->
+<div id="container">
+
+<{if $xoops_lblocks && $xoops_rblocks}>
+             <div class="page pageThreeColumns">
+           <{elseif $xoops_lblocks}>
+             <div class="page pageLeftColumn">
+           <{elseif $xoops_rblocks}>
+             <div class="page pageRightColumn">
+           <{else}>
+             <div class="page pageFullWidth">
+<{/if}>
+
+	<!-- Start Left Column -->
+<{if $xoops_showlblock == 1}>	
+  <div id="leftcolumn">
+	   <{foreach item=block from=$xoops_lblocks}>
+          <{include file="$xoops_theme/theme_blockleft.html"}>
+        <{/foreach}>
+		<!-- more content here -->
+  </div>
+<{/if}>  
+	<!-- End Left Column -->
+	
+	<!-- Start Right Column -->
+	 <{if $xoops_showrblock == 1}>
+	  <div id="rightcolumn">
+		   <{foreach item=block from=$xoops_rblocks}>
+			  <{include file="$xoops_theme/theme_blockright.html"}>
+			<{/foreach}>
+	  </div>
+  
+      <{/if}> 
+	  
+	<!-- End Right Column -->
+	
+	<!-- Start Center Column -->
+	<div id="centercolumn">
+		 <!-- Display center blocks if any -->
+        <{if $xoops_showcblock == 1}>
+
+        <div id="centerCcolumn">
+	 <{foreach item=block from=$xoops_ccblocks}>
+      <{include file="$xoops_theme/theme_blockcenter_c.html"}>
+      <{/foreach}>
+	</div>
+	    <div id="centerLcolumn">
+	  <{foreach item=block from=$xoops_clblocks}>
+      <{include file="$xoops_theme/theme_blockcenter_l.html"}>
+      <{/foreach}>
+	</div>
+	    <div id="centerRcolumn">
+	  <{foreach item=block from=$xoops_crblocks}>
+       <{include file="$xoops_theme/theme_blockcenter_r.html"}>
+       <{/foreach}>
+	</div>
+		
+        <{/if}>
+        <!-- End display center blocks -->
+
+        <div class="content">
+          <{$xoops_contents}>
+        </div>
+
+<!-- START - xoops 2.0.14 improved block positioning-->
+ <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+     
+	 <{if $xoBlocks.page_bottomcenter}>
+     <div id="bottomCcolumn">
+		 <{foreach from=$xoBlocks.page_bottomcenter item=block}><{include file="$xoops_theme/theme_blockcenter_c.html"}><{/foreach}>
+	</div>
+	<{/if}>
+	
+	<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+	<div id="bottomLcolumn">
+	  <{foreach from=$xoBlocks.page_bottomleft item=block}><{include file="$xoops_theme/theme_blockcenter_l.html"}><{/foreach}>
+	</div>
+	<div id="bottomRcolumn">
+	  <{foreach from=$xoBlocks.page_bottomright item=block}><{include file="$xoops_theme/theme_blockcenter_r.html"}><{/foreach}>
+	</div>
+	<{/if}>
+	
+ <{/if}>
+<!-- END - xoops 2.0.14 improved block positioning-->
+
+<!-- START - Added this so the footer would stay in it's place-->
+        <div class="content"></div>
+<!-- END - Added this so the footer would stay in it's place-->
+		
+
+	</div> <!-- End Center Column -->
+	
+</div> <!-- End page div? -->
+
+</div> <!-- End Main Content Area -->
+
+<!-- Start Footer -->
+<div id="footer">
+	<hr />
+	<div>Copyright 2006 <{$xoops_sitename}> - All rights reserved. Theme by <a href="http://www.xoopsdesign.com">XOOPSDesign.com</a></div>
+	<div><{$xoops_footer}></div>
+</div>
+<!-- End Footer -->
+
+</body>
+</html>
